@@ -1,10 +1,11 @@
 {
     "message": {
-        "revoked_addresses": [
+        "revokedAddresses": [
             "6rYiDcxF31vHHSbMw2xXywmutk3napMv7CJ2a1Dcn7vi",
-            "7E9e1H978bVbzm3o26auZJYXw769XWtYXFX2xPv4D8jT"
+            "7E9e1H978bVbzm3o26auZJYXw769XWtYXFX2xPv4D8jT",
+            "GC48pprcLp5Xsad7R17f1FaLonqAP4NqVVTnGiCzep7m"
         ],
-        "expiresAt": "1753947359939"
+        "expiresAt": "1753950304797"
     },
-    "signature": "5ZXdm61swp1DoDMRJGQPUtPSNRPvUrRY5rekTfa9zCELzem2gtTzmQsYUogiuqiNgFCk3eBFofdis6QpZ3G6q82g"
+    "signature": "3sznwN4NVEZVWjPDMk18Q66M85CAfStXR5mutPnbYkYDeM1wnJgks37zVryYPSTFVuW1m2zzraByaYdcYYHnWayW"
 }
