@@ -1,0 +1,7 @@
+{
+  "message": {
+    "revoked_addresses": [],
+    "expiresAt": "1753946068275"
+  },
+  "signature": "rkEX2CHQy4Giggwhr9SmyRiNHk6TXBB2kHAWET4TnpvDjEfgtB2ahYMnt6hiZFUGoH3WaEVavKapHswaFCGKBXs"
+}
