@@ -1,9 +1,15 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "cc.spendwallet.spend",
-    "sha256_cert_fingerprints":
-    ["71:D2:6D:D5:60:D4:42:53:19:EE:0F:2A:98:80:AA:CD:AC:72:4D:20:EE:03:CE:36:96:4D:FC:C7:35:CA:5B:4C"]
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "cc.spendwallet.spend",
+      "sha256_cert_fingerprints": [
+        "71:D2:6D:D5:60:D4:42:53:19:EE:0F:2A:98:80:AA:CD:AC:72:4D:20:EE:03:CE:36:96:4D:FC:C7:35:CA:5B:4C",
+        "56:FD:8D:BC:58:FD:B8:35:4C:92:41:93:B6:DE:A8:10:36:8B:35:48:A9:0B:2E:6D:CD:DB:77:A5:6D:A6:29:BF"
+      ]
+    }
   }
-}]
+]
