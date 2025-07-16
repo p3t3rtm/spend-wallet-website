@@ -119,7 +119,7 @@
             padding: 5px;
         }
 
-        /* Mobile Navigation */
+        /* --- Mobile Navigation --- */
         .mobile-nav {
             position: fixed;
             top: var(--header-height);
@@ -456,12 +456,17 @@
             margin-bottom: 20px;
         }
 
+        .footer-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 10px;
+        }
+
         .footer-links a {
             color: var(--secondary-text-color);
             text-decoration: none;
-            margin: 0 15px;
             transition: color 0.3s ease;
-            display: inline-block;
         }
 
         .footer-links a:hover {
@@ -527,8 +532,9 @@
                 max-width: 300px;
             }
 
-            .footer-links a {
-                margin: 5px 10px;
+            .footer-row {
+                flex-direction: column;
+                gap: 10px;
             }
         }
 
@@ -583,16 +589,17 @@
 
 <body>
     <header>
-        <a href="#home" class="logo-container">
-            <img src="/logofull.png" alt="Spend" class="logo-img">
+        <a href="/" class="logo-container">
+            <img src="/logofull.png" alt="Spend Logo" class="logo-img">
             <span class="logo-text">Spend</span>
         </a>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#download">Download</a></li>
-                <li><a href="#community">About</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#download">Download</a></li>
+                <li><a href="/#community">About</a></li>
+                <li><a href="/pos">Point of Sales</a></li>
             </ul>
         </nav>
         <div class="hamburger">
@@ -602,10 +609,11 @@
 
     <div class="mobile-nav">
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#download">Download</a></li>
-            <li><a href="#community">About</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#download">Download</a></li>
+            <li><a href="/#community">About</a></li>
+            <li><a href="/pos">Point of Sales</a></li>
         </ul>
     </div>
 
@@ -687,44 +695,54 @@
                     class="fab fa-discord"></i></a>
         </div>
         <div class="footer-links">
-            <a href="/">Home</a>
-            <a href="/faq">FAQ</a>
-            <a href="/terms">Terms of Use</a>
-            <a href="/privacy">Privacy Policy</a>
+            <div class="footer-row">
+                <a href="/">Home</a>
+                <a href="/pos">Point of Sales</a>
+            </div>
+            <div class="footer-row">
+                <a href="/faq">FAQ</a>
+                <a href="/terms">Terms of Use</a>
+                <a href="/privacy">Privacy Policy</a>
+            </div>
         </div>
-        <p>&copy; <span id="year"></span> Spend. All Rights Reserved.</p>
+        <p>© <span id="year"></span> Spend. All Rights Reserved.</p>
     </footer>
 
     <script>
         // Hamburger Menu Toggle
         const hamburger = document.querySelector('.hamburger');
         const mobileNav = document.querySelector('.mobile-nav');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        const mainContent = document.querySelector('main');
+
+        function closeMenu() {
+            mobileNav.classList.remove('show');
+            const icon = hamburger.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
 
         hamburger.addEventListener('click', () => {
-            mobileNav.classList.toggle('show');
-            // Toggle hamburger icon
+            const isOpened = mobileNav.classList.toggle('show');
             const icon = hamburger.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+            icon.classList.toggle('fa-bars', !isOpened);
+            icon.classList.toggle('fa-times', isOpened);
         });
 
         // Close mobile nav when a link is clicked
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
+        mobileNavLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileNav.classList.remove('show');
-                const icon = hamburger.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                // Check if the link is for the current page to avoid scrolling issues
+                if (link.getAttribute('href').startsWith('/#') || window.location.pathname === link.getAttribute('href')) {
+                    closeMenu();
+                }
             });
         });
 
-        // Close mobile nav when clicking outside
+        // Close mobile nav when clicking outside on main content
         document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
-                mobileNav.classList.remove('show');
-                const icon = hamburger.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+            if (mobileNav.classList.contains('show') && !hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+                closeMenu();
             }
         });
 
@@ -752,11 +770,16 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    // Calculate position to scroll to
+                    const headerOffset = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
