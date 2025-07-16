@@ -83,7 +83,6 @@
             font-weight: 500;
             cursor: pointer;
             list-style: none;
-            /* For Safari */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -140,7 +139,7 @@
     <div class="container">
         <header>
             <h1>Frequently Asked Questions</h1>
-            <p>Your questions about Spend, Solana, and USDC answered.</p>
+            <p>Your questions about Spend, Solana, and USDC-on-Solana answered.</p>
         </header>
 
         <section>
@@ -149,8 +148,18 @@
                 <details>
                     <summary>What is Spend?</summary>
                     <div class="faq-answer">
-                        <p>Spend is a self-custody (or non-custodial) cryptocurrency wallet designed for managing USDC
-                            on the Solana blockchain quickly and easily.</p>
+                        <p>Spend is a self-custody (or non-custodial) cryptocurrency wallet designed for managing your
+                            SOL and USDC-on-Solana tokens quickly and easily.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>How does Tap to Pay work?</summary>
+                    <div class="faq-answer">
+                        <p>Tap to Pay allows you to use your Spend wallet just like a credit card. Simply tap your phone
+                            on a compatible merchant terminal to make a payment. Note that this feature only works with
+                            merchant terminals that support the Spend POS protocol.</p>
                     </div>
                 </details>
             </div>
@@ -174,10 +183,10 @@
             </div>
             <div class="faq-item">
                 <details>
-                    <summary>What is USDC?</summary>
+                    <summary>What is USDC-on-Solana?</summary>
                     <div class="faq-answer">
-                        <p>USDC (USD Coin) is a stablecoin, which is a type of cryptocurrency designed to maintain a
-                            stable value. One USDC is pegged 1-to-1 with one U.S. Dollar.</p>
+                        <p>USDC (Solana) is a stablecoin on the Solana blockchain, pegged 1-to-1 with the U.S. Dollar.
+                            It allows for fast and low-cost transactions while maintaining a stable value.</p>
                     </div>
                 </details>
             </div>
@@ -185,8 +194,9 @@
                 <details>
                     <summary>Is there a minimum deposit to use the wallet?</summary>
                     <div class="faq-answer">
-                        <p>There's no minimum USDC deposit. However, you need a very small amount of SOL (e.g., 0.01
-                            SOL) in your wallet to pay for network transaction fees.</p>
+                        <p>While there's no minimum USDC deposit, you need a small amount of SOL to cover the costs of
+                            setting up your accounts and performing transactions. Typically, having at least 0.003 SOL
+                            is sufficient to create your accounts and cover initial transaction fees.</p>
                     </div>
                 </details>
             </div>
@@ -232,6 +242,16 @@
                     </div>
                 </details>
             </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Can I recover my wallet if I lose my device?</summary>
+                    <div class="faq-answer">
+                        <p>Yes, as long as you have backed up your private key, you can recover your wallet on a new
+                            device by importing the private key into the Spend app or another compatible Solana wallet
+                            app. Always ensure you keep your private key secure and never share it with anyone.</p>
+                    </div>
+                </details>
+            </div>
         </section>
 
         <section>
@@ -240,8 +260,9 @@
                 <details>
                     <summary>Why do I need SOL in my wallet?</summary>
                     <div class="faq-answer">
-                        <p>Every transaction on the Solana network (like sending USDC) requires a network fee, also
-                            known as a "gas fee." These fees are paid in SOL.</p>
+                        <p>SOL is required for two main purposes: 1) To pay for network transaction fees (also known as
+                            "gas fees") for actions like sending USDC or closing your account. 2) To cover the one-time
+                            rent costs for creating your SOL and USDC accounts on the Solana blockchain.</p>
                     </div>
                 </details>
             </div>
@@ -249,8 +270,7 @@
                 <details>
                     <summary>How much are gas fees?</summary>
                     <div class="faq-answer">
-                        <p>Gas fees on Solana are extremely low, typically costing a fraction of a US cent per
-                            transaction. They can fluctuate based on network congestion.</p>
+                        <p>Gas fees on Solana are extremely low, typically 0.000005 SOL.</p>
                     </div>
                 </details>
             </div>
@@ -267,7 +287,7 @@
                     <summary>Can I reverse a transaction?</summary>
                     <div class="faq-answer">
                         <p>No. All transactions on the Solana blockchain are final and cannot be reversed or cancelled
-                            once confirmed. Always double-check the address before sending.</p>
+                            once confirmed. Always double-check the address and amount before sending.</p>
                     </div>
                 </details>
             </div>
@@ -277,15 +297,6 @@
                     <div class="faq-answer">
                         <p>A transaction hash is a unique identifier for your transaction on the blockchain. It acts as
                             a digital receipt and can be used to verify transaction details on a block explorer.</p>
-                    </div>
-                </details>
-            </div>
-            <div class="faq-item">
-                <details>
-                    <summary>Why is my transaction "pending" or "failed"?</summary>
-                    <div class="faq-answer">
-                        <p>A transaction might fail if you don't have enough SOL for the gas fee. A pending status can
-                            be due to temporary network congestion. Usually, retrying after a moment resolves it.</p>
                     </div>
                 </details>
             </div>
@@ -326,8 +337,12 @@
                 <details>
                     <summary>Do I need to worry about "rent"?</summary>
                     <div class="faq-answer">
-                        <p>No. Rent is a tiny cost required by Solana to keep accounts on the blockchain. The Spend app
-                            handles all rent calculations and payments for you automatically.</p>
+                        <p>The Spend app automatically handles the process of paying the required deposit for your
+                            accounts using the SOL in your wallet. You don't need to manually calculate or manage these
+                            deposits. For clarity, this "rent" is more like a fully refundable deposit, minus a small
+                            0.00005 SOL transaction fee. For reference, the deposit is 0.00089088 SOL to open a SOL
+                            account and 0.00203928
+                            SOL to open a USDC account.</p>
                     </div>
                 </details>
             </div>
@@ -395,10 +410,20 @@
                     </div>
                 </details>
             </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Why is it important to keep the Spend app updated?</summary>
+                    <div class="faq-answer">
+                        <p>Keeping the app updated ensures that you have the latest features, security patches, and
+                            performance improvements. We recommend enabling automatic updates or checking for updates
+                            regularly to ensure the best experience and security.</p>
+                    </div>
+                </details>
+            </div>
         </section>
 
         <footer>
-            &copy; 2025 Spend. All Rights Reserved.
+            © 2025 Spend. All Rights Reserved.
         </footer>
     </div>
 
