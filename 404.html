@@ -122,7 +122,7 @@
             padding: 5px;
         }
 
-        /* Mobile Navigation */
+        /* --- Mobile Navigation --- */
         .mobile-nav {
             position: fixed;
             top: var(--header-height);
@@ -230,7 +230,6 @@
             box-shadow: 0 4px 25px var(--accent-glow);
         }
 
-
         /* --- Footer --- */
         footer {
             padding: 40px 20px;
@@ -239,7 +238,6 @@
             text-align: center;
             color: var(--secondary-text-color);
             font-size: 0.9rem;
-            flex-shrink: 0;
         }
 
         .footer-socials {
@@ -261,12 +259,17 @@
             margin-bottom: 20px;
         }
 
+        .footer-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 10px;
+        }
+
         .footer-links a {
             color: var(--secondary-text-color);
             text-decoration: none;
-            margin: 0 15px;
             transition: color 0.3s ease;
-            display: inline-block;
         }
 
         .footer-links a:hover {
@@ -295,8 +298,9 @@
                 display: block;
             }
             
-            .footer-links a {
-                margin: 5px 10px;
+            .footer-row {
+                flex-direction: column;
+                gap: 10px;
             }
         }
 
@@ -318,15 +322,16 @@
 <body>
     <header>
         <a href="/" class="logo-container">
-            <img src="/logofull.png" alt="Spend" class="logo-img">
+            <img src="/logofull.png" alt="Spend Logo" class="logo-img">
             <span class="logo-text">Spend</span>
         </a>
         <nav>
             <ul>
-                <li><a href="/#home">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="/#features">Features</a></li>
                 <li><a href="/#download">Download</a></li>
                 <li><a href="/#community">About</a></li>
+                <li><a href="/pos">Point of Sales</a></li>
             </ul>
         </nav>
         <div class="hamburger">
@@ -336,10 +341,11 @@
 
     <div class="mobile-nav">
         <ul>
-            <li><a href="/#home">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="/#features">Features</a></li>
             <li><a href="/#download">Download</a></li>
             <li><a href="/#community">About</a></li>
+            <li><a href="/pos">Point of Sales</a></li>
         </ul>
     </div>
 
@@ -360,50 +366,58 @@
                     class="fab fa-discord"></i></a>
         </div>
         <div class="footer-links">
-            <a href="/">Home</a>
-            <a href="/faq">FAQ</a>
-            <a href="/terms">Terms of Use</a>
-            <a href="/privacy">Privacy Policy</a>
+            <div class="footer-row">
+                <a href="/">Home</a>
+                <a href="/pos">Point of Sales</a>
+            </div>
+            <div class="footer-row">
+                <a href="/faq">FAQ</a>
+                <a href="/terms">Terms of Use</a>
+                <a href="/privacy">Privacy Policy</a>
+            </div>
         </div>
-        <p>&copy; <span id="year"></span> Spend. All Rights Reserved.</p>
+        <p>© <span id="year"></span> Spend. All Rights Reserved.</p>
     </footer>
 
     <script>
         // Hamburger Menu Toggle
         const hamburger = document.querySelector('.hamburger');
         const mobileNav = document.querySelector('.mobile-nav');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+        function closeMenu() {
+            mobileNav.classList.remove('show');
+            const icon = hamburger.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
 
         hamburger.addEventListener('click', () => {
-            mobileNav.classList.toggle('show');
-            // Toggle hamburger icon
+            const isOpened = mobileNav.classList.toggle('show');
             const icon = hamburger.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+            icon.classList.toggle('fa-bars', !isOpened);
+            icon.classList.toggle('fa-times', isOpened);
         });
 
         // Close mobile nav when a link is clicked
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
+        mobileNavLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileNav.classList.remove('show');
-                const icon = hamburger.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                // Check if the link is for the current page to avoid scrolling issues
+                if (link.getAttribute('href').startsWith('/#') || window.location.pathname === link.getAttribute('href')) {
+                    closeMenu();
+                }
             });
         });
 
-        // Close mobile nav when clicking outside
+        // Close mobile nav when clicking outside on main content
         document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
-                mobileNav.classList.remove('show');
-                const icon = hamburger.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+            if (mobileNav.classList.contains('show') && !hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+                closeMenu();
             }
         });
 
         // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
-
     </script>
 </body>
 
