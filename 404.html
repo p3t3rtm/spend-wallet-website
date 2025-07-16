@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#000000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Page not found. Spend is a self-custody wallet for managing SOL and USDC-on-Solana.">
+    <meta name="keywords" content="Spend, Solana, USDC, crypto wallet, self-custody, tap to pay, 404">
+    <title>404 Not Found - Spend</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <style>
+        :root {
+            --background-color: #101010;
+            --surface-color: #1A1A1A;
+            --primary-text-color: #F0F0F0;
+            --secondary-text-color: #A0A0A0;
+            --accent-color: #FFD740;
+            --accent-glow: rgba(255, 215, 64, 0.2);
+            --border-color: #333333;
+            --disabled-color: #555555;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #000000;
+            color: var(--primary-text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            max-width: 100vw;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            height: 32px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-text-color);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--primary-text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            padding: 5px;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - var(--header-height));
+            background-color: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .mobile-nav.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .mobile-nav a {
+            color: var(--primary-text-color);
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Main Content --- */
+        main {
+            padding-top: var(--header-height);
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* --- 404 Section --- */
+        .error-section {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .error-code {
+            font-size: clamp(6rem, 25vw, 10rem);
+            font-weight: 700;
+            line-height: 1;
+            color: var(--accent-color);
+            text-shadow: 0 0 30px var(--accent-glow);
+            margin: 0;
+        }
+
+        .error-title {
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            font-weight: 700;
+            margin: 10px 0;
+            color: var(--primary-text-color);
+        }
+        
+        .error-message {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            margin-bottom: 40px;
+            color: var(--secondary-text-color);
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 0 20px var(--accent-glow);
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: #E5C12F;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 25px var(--accent-glow);
+        }
+
+
+        /* --- Footer --- */
+        footer {
+            padding: 40px 20px;
+            background-color: var(--background-color);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--secondary-text-color);
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .footer-socials {
+            margin-bottom: 20px;
+        }
+
+        .footer-socials a {
+            color: var(--secondary-text-color);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-socials a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--secondary-text-color);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-text-color);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 60px;
+            }
+
+            header {
+                padding: 0 15px;
+            }
+
+            .logo-img {
+                height: 28px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+            
+            .footer-links a {
+                margin: 5px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 0 10px;
+            }
+            .logo-img {
+                height: 24px;
+            }
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/" class="logo-container">
+            <img src="/logofull.png" alt="Spend" class="logo-img">
+            <span class="logo-text">Spend</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="/#home">Home</a></li>
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#download">Download</a></li>
+                <li><a href="/#community">About</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="/#home">Home</a></li>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#download">Download</a></li>
+            <li><a href="/#community">About</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="error-section">
+            <h1 class="error-code">404</h1>
+            <h2 class="error-title">Lost in Cyberspace?</h2>
+            <p class="error-message">
+                It seems the page you're looking for doesn't exist or has been moved. Don't worry, we can get you back on track.
+            </p>
+            <a href="/" class="cta-button">Return to Home</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-socials">
+            <a href="https://discord.spendwallet.cc" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i
+                    class="fab fa-discord"></i></a>
+        </div>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/faq">FAQ</a>
+            <a href="/terms">Terms of Use</a>
+            <a href="/privacy">Privacy Policy</a>
+        </div>
+        <p>&copy; <span id="year"></span> Spend. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileNav = document.querySelector('.mobile-nav');
+
+        hamburger.addEventListener('click', () => {
+            mobileNav.classList.toggle('show');
+            // Toggle hamburger icon
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close mobile nav when a link is clicked
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('show');
+                const icon = hamburger.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+                mobileNav.classList.remove('show');
+                const icon = hamburger.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+    </script>
+</body>
+
+</html>
