@@ -304,6 +304,7 @@
             color: var(--secondary-text-color);
             font-style: italic;
         }
+
         .verified-note .fa-check-circle {
             color: var(--accent-color);
             margin-right: 8px;
@@ -420,6 +421,23 @@
             color: var(--secondary-text-color);
             margin-bottom: 30px;
             font-size: 1.1rem;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            color: var(--secondary-text-color);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+            word-break: break-word;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
         }
 
 
@@ -586,6 +604,7 @@
             <p>Empower your business with Spend POS. Accept SOL and USDC payments instantly, with unparalleled speed
                 and radically low fees, directly from your customers' wallets.</p>
             <a href="mailto:sales@spendwallet.cc" class="cta-button">Become a Merchant</a>
+            <p class="contact-info"><a href="mailto:sales@spendwallet.cc">sales@spendwallet.cc</a>
         </section>
 
         <section id="how-it-works" class="animated-section">
@@ -679,6 +698,8 @@
                 <div class="contact-cta">
                     <p>Have complex needs? Let's build the perfect solution together.</p>
                     <a href="mailto:sales@spendwallet.cc" class="cta-button">Contact Sales</a>
+                    <p class="contact-info"><a href="mailto:sales@spendwallet.cc">sales@spendwallet.cc</a>
+                    </p>
                 </div>
             </div>
         </section>
