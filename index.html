@@ -22,6 +22,11 @@
             --accent-glow: rgba(255, 215, 64, 0.2);
             --border-color: #333333;
             --disabled-color: #555555;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         html {
@@ -35,6 +40,7 @@
             background: linear-gradient(180deg, var(--background-color) 0%, #121212 100%);
             color: var(--primary-text-color);
             line-height: 1.7;
+            overflow-x: hidden;
         }
 
         /* --- Header --- */
@@ -42,15 +48,19 @@
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
             width: 100%;
-            background-color: rgba(26, 26, 26, 0.8);
+            height: var(--header-height);
+            background-color: rgba(26, 26, 26, 0.95);
             backdrop-filter: blur(10px);
-            padding: 20px 40px;
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
+            max-width: 100vw;
         }
 
         .logo-container {
@@ -58,26 +68,26 @@
             align-items: center;
             gap: 10px;
             text-decoration: none;
+            flex-shrink: 0;
         }
 
-        .logo-svg {
-            width: 30px;
-            height: 30px;
-            fill: var(--accent-color);
+        .logo-img {
+            height: 32px;
+            width: auto;
         }
 
-        .logo-text {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--primary-text-color);
+        nav {
+            display: flex;
+            align-items: center;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 30px;
             margin: 0;
             padding: 0;
+            align-items: center;
         }
 
         nav a {
@@ -85,6 +95,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease, text-shadow 0.3s ease;
+            white-space: nowrap;
         }
 
         nav a:hover {
@@ -97,16 +108,66 @@
             cursor: pointer;
             color: var(--accent-color);
             font-size: 1.5rem;
+            flex-shrink: 0;
+            padding: 5px;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - var(--header-height));
+            background-color: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .mobile-nav.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .mobile-nav a {
+            color: var(--primary-text-color);
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--accent-color);
         }
 
         /* --- Main Content & Sections --- */
         main {
-            padding-top: 85px;
-            /* Header height */
+            padding-top: var(--header-height);
         }
 
         section {
-            padding: 80px 40px;
+            padding: 80px 20px;
+            max-width: 100%;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -131,30 +192,33 @@
 
         /* --- Hero Section --- */
         .hero {
-            min-height: calc(100vh - 85px);
+            min-height: calc(100vh - var(--header-height));
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
+            padding: 40px 20px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
             margin-bottom: 20px;
             font-weight: 700;
             max-width: 800px;
+            line-height: 1.2;
             background: -webkit-linear-gradient(45deg, var(--primary-text-color), var(--accent-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             margin-bottom: 40px;
             color: var(--secondary-text-color);
             max-width: 600px;
+            line-height: 1.6;
         }
 
         .cta-button {
@@ -166,6 +230,7 @@
             text-decoration: none;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
             box-shadow: 0 0 20px var(--accent-glow);
+            font-size: 1rem;
         }
 
         .cta-button:hover {
@@ -181,7 +246,7 @@
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
@@ -218,11 +283,19 @@
             color: var(--secondary-text-color);
             margin: 0;
             font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* --- Download Section --- */
         .download {
             text-align: center;
+        }
+
+        .download p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            max-width: 500px;
+            margin: -20px auto 30px auto;
+            color: var(--secondary-text-color);
         }
 
         .app-stores {
@@ -238,12 +311,13 @@
             background-color: var(--surface-color);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 15px 30px;
+            padding: 15px 25px;
             display: inline-flex;
             align-items: center;
             text-decoration: none;
             color: var(--primary-text-color);
             transition: background-color 0.3s ease, transform 0.3s ease;
+            min-width: 200px;
         }
 
         .store-button:hover {
@@ -254,6 +328,7 @@
         .store-button i {
             font-size: 2rem;
             margin-right: 15px;
+            flex-shrink: 0;
         }
 
         .store-button .text-container {
@@ -323,19 +398,22 @@
 
         .community-content p {
             color: var(--secondary-text-color);
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
             margin-bottom: 30px;
+            line-height: 1.6;
         }
 
         .contact-info {
             margin-top: 40px;
             color: var(--secondary-text-color);
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         .contact-info a {
             color: var(--accent-color);
             text-decoration: none;
             transition: text-decoration 0.3s;
+            word-break: break-word;
         }
 
         .contact-info a:hover {
@@ -344,7 +422,7 @@
 
         /* --- Footer --- */
         footer {
-            padding: 40px;
+            padding: 40px 20px;
             background-color: var(--background-color);
             border-top: 1px solid var(--border-color);
             text-align: center;
@@ -374,8 +452,9 @@
         .footer-links a {
             color: var(--secondary-text-color);
             text-decoration: none;
-            margin: 0 10px;
+            margin: 0 15px;
             transition: color 0.3s ease;
+            display: inline-block;
         }
 
         .footer-links a:hover {
@@ -383,58 +462,113 @@
         }
 
         /* --- Responsive Design --- */
+        @media (max-width: 1024px) {
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
+            :root {
+                --header-height: 60px;
             }
 
-            section {
-                padding: 60px 20px;
+            header {
+                padding: 0 15px;
+            }
+
+            .logo-img {
+                height: 28px;
             }
 
             nav ul {
                 display: none;
-                position: fixed;
-                top: 70px;
-                /* Header height */
-                left: 0;
-                width: 100%;
-                height: calc(100% - 70px);
-                background-color: var(--surface-color);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease-in-out;
-            }
-
-            nav ul.show {
-                display: flex;
-                transform: translateX(0);
-            }
-
-            nav li {
-                margin: 20px 0;
-            }
-
-            nav a {
-                font-size: 1.5rem;
             }
 
             .hamburger {
                 display: block;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            section {
+                padding: 60px 15px;
             }
 
-            .hero p {
-                font-size: 1rem;
+            .hero {
+                padding: 40px 15px;
             }
 
             .section-title {
                 font-size: 1.8rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .feature-card {
+                padding: 25px;
+            }
+
+            .app-stores {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .store-button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .footer-links a {
+                margin: 5px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 0 10px;
+            }
+
+            .logo-img {
+                height: 24px;
+            }
+
+            section {
+                padding: 50px 10px;
+            }
+
+            .hero {
+                padding: 30px 10px;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+
+            .store-button {
+                padding: 12px 20px;
+                min-width: 180px;
+            }
+
+            .store-button .title {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Prevent horizontal scrolling */
+        @media (max-width: 320px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -443,11 +577,7 @@
 <body>
     <header>
         <a href="#home" class="logo-container">
-            <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M62.6,23.3c-7.4-6.2-17.4-9.3-28.8-9.3C18.5,14,7.2,19.7,7.2,30.3c0,7.1,5.2,12.5,13.2,15.3c-2.3,2.4-3.8,5.4-3.8,8.8 c0,7.5,6.1,13.6,13.6,13.6c3.4,0,6.5-1.3,8.8-3.8c2.8,8,8.2,13.2,15.3,13.2c10.6,0,21.9-11.3,21.9-26.6 C76.2,40.1,70.9,29.9,62.6,23.3z M22.2,39.4c-3.7-1.4-6-4.1-6-7.1c0-4.8,5.7-8.6,12.7-8.6c8.1,0,13.6,4.6,13.6,10 c0,1.9-0.5,3.7-1.5,5.3C35.2,44.2,28.4,43.2,22.2,39.4z M62.6,62.8c-4.8,0-8.6-5.7-8.6-12.7c0-7,3.2-11.7,8.2-14.7 c5.7,3.8,9.4,9.2,9.4,15.4C71.5,58,67.4,62.8,62.6,62.8z" />
-            </svg>
-            <span class="logo-text">Spend</span>
+            <img src="/logofull.png" alt="Spend" class="logo-img">
         </a>
         <nav>
             <ul>
@@ -461,6 +591,15 @@
             <i class="fas fa-bars"></i>
         </div>
     </header>
+
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#download">Download</a></li>
+            <li><a href="#community">Community</a></li>
+        </ul>
+    </div>
 
     <main>
         <section id="home" class="hero is-visible">
@@ -499,9 +638,7 @@
 
         <section id="download" class="download animated-section">
             <h2 class="section-title">Your Wallet is <span>Waiting</span></h2>
-            <p
-                style="text-align: center; color: var(--secondary-text-color); max-width: 500px; margin: -20px auto 30px auto;">
-                Take control of your digital assets. Download Spend today and step into the new era of finance.</p>
+            <p>Take control of your digital assets. Download Spend today and step into the new era of finance.</p>
             <div class="app-stores">
                 <a href="#" class="store-button">
                     <i class="fa-brands fa-google-play"></i>
@@ -542,7 +679,7 @@
                     class="fab fa-discord"></i></a>
         </div>
         <div class="footer-links">
-            <a href="/terms">Terms of Service</a>
+            <a href="/terms">Terms of Use</a>
             <a href="/privacy">Privacy Policy</a>
         </div>
         <p>&copy; <span id="year"></span> Spend. All Rights Reserved.</p>
@@ -550,17 +687,35 @@
 
     <script>
         // Hamburger Menu Toggle
-        document.querySelector('.hamburger').addEventListener('click', () => {
-            document.querySelector('nav ul').classList.toggle('show');
+        const hamburger = document.querySelector('.hamburger');
+        const mobileNav = document.querySelector('.mobile-nav');
+        
+        hamburger.addEventListener('click', () => {
+            mobileNav.classList.toggle('show');
+            // Toggle hamburger icon
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
 
         // Close mobile nav when a link is clicked
-        document.querySelectorAll('nav ul a').forEach(link => {
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
-                if (document.querySelector('nav ul').classList.contains('show')) {
-                    document.querySelector('nav ul').classList.remove('show');
-                }
+                mobileNav.classList.remove('show');
+                const icon = hamburger.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             });
+        });
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+                mobileNav.classList.remove('show');
+                const icon = hamburger.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
 
         // Set current year in footer
@@ -583,6 +738,19 @@
             observer.observe(section);
         });
 
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 
