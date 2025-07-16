@@ -3,28 +3,174 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="theme-color" content="#000000">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Spend is a self-custody wallet for managing SOL and USDC-on-Solana, designed for speed, security, and simplicity.">
+    <meta name="keywords" content="Spend, Solana, USDC, crypto wallet, self-custody, tap to pay">
     <title>Spend - Terms of Use</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
-
         :root {
-            --background-color: #121212;
-            --surface-color: #1E1E1E;
-            --primary-text-color: #E0E0E0;
+            --background-color: #101010;
+            --surface-color: #1A1A1A;
+            --primary-text-color: #F0F0F0;
             --secondary-text-color: #A0A0A0;
             --accent-color: #FFD740;
+            --accent-glow: rgba(255, 215, 64, 0.2);
             --border-color: #333333;
+            --disabled-color: #555555;
+            --header-height: 70px;
             --danger-color: #CF6679;
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--background-color);
+            background: #000000;
             color: var(--primary-text-color);
             line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            max-width: 100vw;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            height: 32px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-text-color);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--primary-text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            padding: 5px;
+        }
+
+        /* --- Mobile Navigation --- */
+        .mobile-nav {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - var(--header-height));
+            background-color: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .mobile-nav.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .mobile-nav a {
+            color: var(--primary-text-color);
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Main Content --- */
+        main {
+            padding-top: var(--header-height);
         }
 
         .container {
@@ -37,24 +183,12 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        header {
-            text-align: center;
-            padding-bottom: 30px;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-        }
-
-        header h1 {
+        h1 {
             color: var(--accent-color);
             font-size: 2.5rem;
             font-weight: 700;
             margin: 0;
-        }
-
-        header p {
-            color: var(--secondary-text-color);
-            font-size: 1rem;
-            margin-top: 8px;
+            text-align: center;
         }
 
         h2 {
@@ -108,222 +242,446 @@
             margin-bottom: 0;
         }
 
-        a {
+        .container a {
             color: var(--accent-color);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        a:hover {
+        .container a:hover {
             text-decoration: underline;
         }
 
+        /* --- Footer --- */
         footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
+            padding: 40px 20px;
+            background-color: var(--background-color);
             border-top: 1px solid var(--border-color);
+            text-align: center;
             color: var(--secondary-text-color);
             font-size: 0.9rem;
+        }
+
+        .footer-socials {
+            margin-bottom: 20px;
+        }
+
+        .footer-socials a {
+            color: var(--secondary-text-color);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-socials a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--secondary-text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-text-color);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 60px;
+            }
+
+            header {
+                padding: 0 15px;
+            }
+
+            .logo-img {
+                height: 28px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .footer-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 0 10px;
+            }
+
+            .logo-img {
+                height: 24さんにじゅうよんpx;
+            }
+
+            .container {
+                padding: 15px 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 
 <body>
-
-    <div class="container">
-        <header>
-            <h1>Terms of Use</h1>
-            <p><strong>Effective Date:</strong> July 14, 2025 | <strong>Version:</strong> 1.2</p>
-        </header>
-
-        <section>
-            <p>
-                These Terms of Use ("Terms") govern your access to and use of the Spend self-custody cryptocurrency
-                wallet application ("App," "we," "us," or "our"). By downloading, accessing, or using our App, you
-                ("User," "you") agree to be bound by these Terms and our Privacy Policy, available at
-                <a href="https://spendwallet.cc/privacy">https://spendwallet.cc/privacy</a>. If you do not agree to
-                these Terms or the Privacy Policy, do not use the App.
-            </p>
-        </section>
-
-        <div class="important-notice">
-            <h3>Self-Custody & Assumption of Risk</h3>
-            <p>Spend is a self-custody (non-custodial) wallet. This means <strong>we do not have access to or control
-                    over your private keys, passwords, or funds.</strong> You are solely responsible for securing your
-                private keys. Losing this information may result in the permanent and irreversible
-                loss of your digital assets. You acknowledge that using cryptocurrencies involves significant risks,
-                including but not limited to price volatility, hacking, phishing attacks, regulatory changes, and
-                software vulnerabilities. You assume all such risks when using the App.</p>
+    <header>
+        <a href="/" class="logo-container">
+            <img src="/logofull.png" alt="Spend Logo" class="logo-img">
+            <span class="logo-text">Spend</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#download">Download</a></li>
+                <li><a href="/#community">About</a></li>
+                <li><a href="/pos">Point of Sales</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
         </div>
+    </header>
 
-        <section>
-            <h2>1. User Responsibilities</h2>
-            <ol>
-                <li><strong>Security:</strong> You are solely responsible for the security of your device, private
-                    keys. You agree to take all necessary precautions to prevent unauthorized
-                    access to your wallet, including securely backing up your private keys. Spend
-                    does not store or have access to this information and cannot assist with recovery if it is lost.
-                </li>
-                <li><strong>Transactions:</strong> All transactions initiated through the App are processed on the
-                    Solana blockchain. You acknowledge that all blockchain transactions are irreversible. We have no
-                    ability to reverse or refund any transactions.</li>
-                <li><strong>Fees:</strong> Transactions on the Solana network require the payment of network fees ("gas
-                    fees"). You are responsible for all such fees.</li>
-                <li><strong>Compliance:</strong> You agree to use the App in compliance with all applicable local,
-                    national, and international laws and regulations. The App is not available in jurisdictions where
-                    its
-                    use is prohibited by law, including sanctioned countries or regions.</li>
-                <li><strong>Taxes:</strong> You are solely responsible for determining and fulfilling any tax
-                    obligations
-                    related to your use of the App, including reporting cryptocurrency transactions to the relevant tax
-                    authorities. Spend does not provide tax advice.</li>
-            </ol>
-        </section>
-
-        <section>
-            <h2>2. Prohibited Activities</h2>
-            <p>You agree not to engage in any of the following prohibited activities:</p>
-            <ul>
-                <li>Using the App for any illegal purpose, including but not limited to money laundering, terrorist
-                    financing, or fraud.</li>
-                <li>Attempting to gain unauthorized access to our systems or another user's wallet.</li>
-                <li>Using the App to transmit viruses, malware, or any other malicious code.</li>
-                <li>Decompiling, reverse-engineering, or otherwise attempting to derive the source code of the App.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>3. Intellectual Property</h2>
-            <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for your
-                personal, non-commercial use. All rights, title, and interest in and to the App, including all
-                intellectual property rights, are and will remain the exclusive property of Spend and its licensors. Any
-                unauthorized use of the App’s intellectual property may result in termination of your access and legal
-                action to protect our rights.</p>
-        </section>
-
-        <section>
-            <h2>4. Disclaimers of Warranty</h2>
-            <p>The App is provided "as is" and "as available" without any warranties of any kind, express or implied. We
-                do not warrant that the App will be error-free, uninterrupted, or secure. You acknowledge that the value
-                of cryptocurrencies is highly volatile and that you use the App at your own risk. We are not a financial
-                advisor, and the App is not intended to provide financial advice.</p>
-        </section>
-
-        <section>
-            <h2>5. Limitation of Liability</h2>
-            <p>To the fullest extent permitted by law, in no event will Spend, its developers, affiliates, or licensors
-                be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of
-                profits, revenue, data, or digital assets, arising out of or related to your use of, or inability to
-                use, the App. This includes, but is not limited to, losses resulting from:</p>
-            <ul>
-                <li>Your failure to maintain the security of your private keys.</li>
-                <li>Errors or bugs in the App's software.</li>
-                <li>Failures of the Solana network or other third-party services.</li>
-                <li>Unauthorized third-party activities.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>6. Indemnification</h2>
-            <p>You agree to indemnify and hold harmless Spend and its developers from and against any claims,
-                liabilities, damages, losses, and expenses arising out of or in any way connected with your access to or
-                use of the App or your violation of these Terms.</p>
-        </section>
-
-        <section>
-            <h2>7. Third-Party Services</h2>
-            <p>The App relies on third-party services, including but not limited to the Solana blockchain for
-                transaction processing and Google Firebase for push notifications. These services are subject to their
-                own terms and conditions, and we are not responsible for their performance, availability, or any issues
-                arising from their use. You acknowledge that disruptions in these services may affect the functionality
-                of the App.</p>
-            <p>If you download the App from a third-party app store, you acknowledge that these Terms are between you
-                and Spend, not the app store provider, and that additional app store terms may apply.</p>
-        </section>
-
-        <section>
-            <h2>8. Age Restrictions</h2>
-            <p>The App is not intended for individuals under the age of 13 (or 16 in the European Union). By using the
-                App, you represent and warrant that you meet the applicable age requirements. If we become aware that a
-                user is under the required age, we may terminate their access to the App.</p>
-        </section>
-
-        <section>
-            <h2>9. Updates to the App</h2>
-            <p>We may release updates, patches, or new versions of the App from time to time to improve functionality,
-                security, or compliance. You are responsible for installing and using the latest version of the App.
-                Failure to update may result in limited functionality or inability to use certain features.</p>
-        </section>
-
-        <section>
-            <h2>10. Termination of Use</h2>
-            <p>We reserve the right to suspend or terminate your access to the App at our sole discretion, with or
-                without notice, for any reason, including but not limited to violation of these Terms, suspected
-                fraudulent activity, or misuse of the App. Upon termination, your right to use the App will cease
-                immediately, but you will retain control of your private keys and digital assets, as the App is
-                self-custodial. You may lose access to app-specific features, such as transaction history or push
-                notifications. Any user data stored by Spend (e.g., via third-party services) will be handled in
-                accordance with our Privacy Policy.</p>
-        </section>
-
-        <section>
-            <h2>11. Modification of Terms</h2>
-            <p>We may update these Terms from time to time to reflect changes in our practices, technology, or other
-                factors. When we make changes, we will:</p>
-            <ul>
-                <li><strong>Update the "Last Updated" Date and Version Number:</strong> The date and version number at
-                    the top of these Terms will reflect when changes become effective.</li>
-                <li><strong>Post the Updated Terms:</strong> The revised Terms will be made available on our website and
-                    accessible through the app's terms of use link.</li>
-            </ul>
-            <p><strong>Your continued use of the App after any changes become effective constitutes your acceptance of
-                    the revised Terms.</strong> We encourage you to review these Terms periodically to stay informed
-                about your rights and responsibilities.</p>
-            <p>If you do not agree with any changes to these Terms, you should discontinue use of the App.</p>
-        </section>
-
-        <section>
-            <h2>12. Force Majeure</h2>
-            <p>Spend shall not be liable for any failure to perform its obligations under these Terms due to events
-                beyond its reasonable control, including but not limited to natural disasters, network failures, or
-                changes in applicable law.</p>
-        </section>
-
-        <section>
-            <h2>13. Regulatory Compliance</h2>
-            <p>Spend reserves the right to modify or discontinue the App, in whole or in part, to comply with applicable
-                laws or regulations, including changes in cryptocurrency regulations.</p>
-        </section>
-
-        <section>
-            <h2>14. Severability and Entire Agreement</h2>
-            <p><strong>Severability:</strong> If any provision of these Terms is found to be unenforceable or invalid,
-                the remaining provisions will remain in full force and effect.</p>
-            <p><strong>Entire Agreement:</strong> These Terms, together with our Privacy Policy, constitute the entire
-                agreement between you and Spend regarding your use of the App and supersede any prior agreements.</p>
-        </section>
-
-        <section>
-            <h2>15. Language</h2>
-            <p>These Terms are provided in English. If you require a translation, please contact us at
-                <a href="mailto:support@spendwallet.cc">support@spendwallet.cc</a>, but the English version shall govern
-                in case of any discrepancies.
-            </p>
-        </section>
-
-        <section>
-            <h2>16. Contact Us</h2>
-            <p>If you have any questions about these Terms, please contact us at:
-                <a href="mailto:support@spendwallet.cc">support@spendwallet.cc</a>
-            </p>
-        </section>
-
-        <footer>
-            © 2025 Spend. All Rights Reserved.
-        </footer>
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#download">Download</a></li>
+            <li><a href="/#community">About</a></li>
+            <li><a href="/pos">Point of Sales</a></li>
+        </ul>
     </div>
 
+    <main>
+        <div class="container">
+            <h1>Terms of Use</h1>
+            <p><strong>Effective Date:</strong> July 14, 2025 | <strong>Version:</strong> 1.2</p>
+
+            <section>
+                <p>
+                    These Terms of Use ("Terms") govern your access to and use of the Spend self-custody cryptocurrency
+                    wallet application ("App," "we," "us," or "our"). By downloading, accessing, or using our App, you
+                    ("User," "you") agree to be bound by these Terms and our Privacy Policy, available at
+                    <a href="https://spendwallet.cc/privacy">https://spendwallet.cc/privacy</a>. If you do notAgree to
+                    these Terms or the Privacy Policy, do not use the App.
+                </p>
+            </section>
+
+            <div class="important-notice">
+                <h3>Self-Custody & Assumption of Risk</h3>
+                <p>Spend is a self-custody (non-custodial) wallet. This means <strong>we do not have access to or
+                        control
+                        over your private keys, passwords, or funds.</strong> You are solely responsible for securing
+                    your
+                    private keys. Losing this information may result in the permanent and irreversible
+                    loss of your digital assets. You acknowledge that using cryptocurrencies involves significant risks,
+                    including but not limited to price volatility, hacking, phishing attacks, regulatory changes, and
+                    software vulnerabilities. You assume all such risks when using the App.</p>
+            </div>
+
+            <section>
+                <h2>1. User Responsibilities</h2>
+                <ol>
+                    <li><strong>Security:</strong> You are solely responsible for the security of your device, private
+                        keys. You agree to take all necessary precautions to prevent unauthorized
+                        access to your wallet, including securely backing up your private keys. Spend
+                        does not store or have access to this information and cannot assist with recovery if it is lost.
+                    </li>
+                    <li><strong>Transactions:</strong> All transactions initiated through the App are processed on the
+                        Solana blockchain. You acknowledge that all blockchain transactions are irreversible. We have no
+                        ability to reverse or refund any transactions.</li>
+                    <li><strong>Fees:</strong> Transactions on the Solana network require the payment of network fees
+                        ("gas
+                        fees"). You are responsible for all such fees.</li>
+                    <li><strong>Compliance:</strong> You agree to use the App in compliance with all applicable local,
+                        national, and international laws and regulations. The App is not available in jurisdictions
+                        where
+                        its
+                        use is prohibited by law, including sanctioned countries or regions.</li>
+                    <li><strong>Taxes:</strong> You are solely responsible for determining and fulfilling any tax
+                        obligations
+                        related to your use of the App, including reporting cryptocurrency transactions to the relevant
+                        tax
+                        authorities. Spend does not provide tax advice.</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>2. Prohibited Activities</h2>
+                <p>You agree not to engage in any of the following prohibited activities:</p>
+                <ul>
+                    <li>Using the App for any illegal purpose, including but not limited to money laundering, terrorist
+                        financing, or fraud.</li>
+                    <li>Attempting to gain unauthorized access to our systems or another user's wallet.</li>
+                    <li>Using the App to transmit viruses, malware, or any other malicious code.</li>
+                    <li>Decompiling, reverse-engineering, or otherwise attempting to derive the source code of the App.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. Intellectual Property</h2>
+                <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for your
+                    personal, non-commercial use. All rights, title, and interest in and to the App, including all
+                    intellectual property rights, are and will remain the exclusive property of Spend and its licensors.
+                    Any
+                    unauthorized use of the App’s intellectual property may result in termination of your access and
+                    legal
+                    action to protect our rights.</p>
+            </section>
+
+            <section>
+                <h2>4. Disclaimers of Warranty</h2>
+                <p>The App is provided "as is" and "as available" without any warranties of any kind, express or
+                    implied. We
+                    do not warrant that the App will be error-free, uninterrupted, or secure. You acknowledge that the
+                    value
+                    of cryptocurrencies is highly volatile and that you use the App at your own risk. We are not a
+                    financial
+                    advisor, and the App is not intended to provide financial advice.</p>
+            </section>
+
+            <section>
+                <h2>5. Limitation of Liability</h2>
+                <p>To the fullest extent permitted by law, in no event will Spend, its developers, affiliates, or
+                    licensors
+                    be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of
+                    profits, revenue, data, or digital assets, arising out of or related to your use of, or inability to
+                    use, the App. This includes, but is not limited to, losses resulting from:</p>
+                <ul>
+                    <li>Your failure to maintain the security of your private keys.</li>
+                    <li>Errors or bugs in the App's software.</li>
+                    <li>Failures of the Solana network or other third-party services.</li>
+                    <li>Unauthorized third-party activities.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>6. Indemnification</h2>
+                <p>You agree to indemnify and hold harmless Spend and its developers from and against any claims,
+                    liabilities, damages, losses, and expenses arising out of or in any way connected with your access
+                    to or
+                    use of the App or your violation of these Terms.</p>
+            </section>
+
+            <section>
+                <h2>7. Third-Party Services</h2>
+                <p>The App relies on third-party services, including but not limited to the Solana blockchain for
+                    transaction processing and Google Firebase for push notifications. These services are subject to
+                    their
+                    own terms and conditions, and we are not responsible for their performance, availability, or any
+                    issues
+                    arising from their use. You acknowledge that disruptions in these services may affect the
+                    functionality
+                    of the App.</p>
+                <p>If you download the App from a third-party app store, you acknowledge that these Terms are between
+                    you
+                    and Spend, not the app store provider, and that additional app store terms may apply.</p>
+            </section>
+
+            <section>
+                <h2>8. Age Restrictions</h2>
+                <p>The App is not intended for individuals under the age of 13 (or 16 in the European Union). By using
+                    the
+                    App, you represent and warrant that you meet the applicable age requirements. If we become aware
+                    that a
+                    user is under the required age, we may terminate their access to the App.</p>
+            </section>
+
+            <section>
+                <h2>9. Updates to the App</h2>
+                <p>We may release updates, patches, or new versions of the App from time to time to improve
+                    functionality,
+                    security, or compliance. You are responsible for installing and using the latest version of the App.
+                    Failure to update may result in limited functionality or inability to use certain features.</p>
+            </section>
+
+            <section>
+                <h2>10. Termination of Use</h2>
+                <p>We reserve the right to suspend or terminate your access to the App at our sole discretion, with or
+                    without notice, for any reason, including but not limited to violation of these Terms, suspected
+                    fraudulent activity, or misuse of the App. Upon termination, your right to use the App will cease
+                    immediately, but you will retain control of your private keys and digital assets, as the App is
+                    self-custodial. You may lose access to app-specific features, such as transaction history or push
+                    notifications. Any user data stored by Spend (e.g., via third-party services) will be handled in
+                    accordance with our Privacy Policy.</p>
+            </section>
+
+            <section>
+                <h2>11. Modification of Terms</h2>
+                <p>We may update these Terms from time to time to reflect changes in our practices, technology, or other
+                    factors. When we make changes, we will:</p>
+                <ul>
+                    <li><strong>Update the "Last Updated" Date and Version Number:</strong> The date and version number
+                        at
+                        the top of these Terms will reflect when changes become effective.</li>
+                    <li><strong>Post the Updated Terms:</strong> The revised Terms will be made available on our website
+                        and
+                        accessible through the app's terms of use link.</li>
+                </ul>
+                <p><strong>Your continued use of the App after any changes become effective constitutes your acceptance
+                        of
+                        the revised Terms.</strong> We encourage you to review these Terms periodically to stay informed
+                    about your rights and responsibilities.</p>
+                <p>If you do not agree with any changes to these Terms, you should discontinue use of the App.</p>
+            </section>
+
+            <section>
+                <h2>12. Force Majeure</h2>
+                <p>Spend shall not be liable for any failure to perform its obligations under these Terms due to events
+                    beyond its reasonable control, including but not limited to natural disasters, network failures, or
+                    changes in applicable law.</p>
+            </section>
+
+            <section>
+                <h2>13. Regulatory Compliance</h2>
+                <p>Spend reserves the right to modify or discontinue the App, in whole or in part, to comply with
+                    applicable
+                    laws or regulations, including changes in cryptocurrency regulations.</p>
+            </section>
+
+            <section>
+                <h2>14. Severability and Entire Agreement</h2>
+                <p><strong>Severability:</strong> If any provision of these Terms is found to be unenforceable or
+                    invalid,
+                    the remaining provisions will remain in full force and effect.</p>
+                <p><strong>Entire Agreement:</strong> These Terms, together with our Privacy Policy, constitute the
+                    entire
+                    agreement between you and Spend regarding your use of the App and supersede any prior agreements.
+                </p>
+            </section>
+
+            <section>
+                <h2>15. Language</h2>
+                <p>These Terms are provided in English. If you require a translation, please contact us at
+                    <a href="mailto:support@spendwallet.cc">support@spendwallet.cc</a>, but the English version shall
+                    govern
+                    in case of any discrepancies.
+                </p>
+            </section>
+
+            <section>
+                <h2>16. Contact Us</h2>
+                <p>If you have any questions about these Terms, please contact us at:
+                    <a href="mailto:support@spendwallet.cc">support@spendwallet.cc</a>
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-socials">
+            <a href="https://discord.spendwallet.cc" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i
+                    class="fab fa-discord"></i></a>
+        </div>
+        <div class="footer-links">
+            <div class="footer-row">
+                <a href="/">Home</a>
+                <a href="/pos">Point of Sales</a>
+            </div>
+            <div class="footer-row">
+                <a href="/faq">FAQ</a>
+                <a href="/terms">Terms of Use</a>
+                <a href="/privacy">Privacy Policy</a>
+            </div>
+        </div>
+        <p>© <span id="year"></span> Spend. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        const mainContent = document.querySelector('main');
+
+        function closeMenu() {
+            mobileNav.classList.remove('show');
+            const icon = hamburger.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+
+        hamburger.addEventListener('click', () => {
+            const isOpened = mobileNav.classList.toggle('show');
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('fa-bars', !isOpened);
+            icon.classList.toggle('fa-times', isOpened);
+        });
+
+        // Close mobile nav when a link is clicked
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Check if the link is for the current page to avoid scrolling issues
+                if (link.getAttribute('href').startsWith('/#') || window.location.pathname === link.getAttribute('href')) {
+                    closeMenu();
+                }
+            });
+        });
+
+        // Close mobile nav when clicking outside on main content
+        document.addEventListener('click', (e) => {
+            if (mobileNav.classList.contains('show') && !hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    // Calculate position to scroll to
+                    const headerOffset = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
