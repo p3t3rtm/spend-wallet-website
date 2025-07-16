@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spend - Frequently Asked Questions (FAQ)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+        :root {
+            --background-color: #121212;
+            --surface-color: #1E1E1E;
+            --primary-text-color: #E0E0E0;
+            --secondary-text-color: #A0A0A0;
+            --accent-color: #FFD740;
+            --border-color: #333333;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--primary-text-color);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px 40px;
+            background-color: var(--surface-color);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        header p {
+            color: var(--secondary-text-color);
+            font-size: 1rem;
+            margin-top: 8px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        details {
+            font-size: 1rem;
+        }
+
+        summary {
+            font-weight: 500;
+            cursor: pointer;
+            list-style: none;
+            /* For Safari */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        details[open] summary:after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            color: var(--secondary-text-color);
+            padding-top: 15px;
+            margin-left: 5px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--secondary-text-color);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Frequently Asked Questions</h1>
+            <p>Your questions about Spend, Solana, and USDC answered.</p>
+        </header>
+
+        <section>
+            <h2>Getting Started</h2>
+            <div class="faq-item">
+                <details>
+                    <summary>What is Spend?</summary>
+                    <div class="faq-answer">
+                        <p>Spend is a self-custody (or non-custodial) cryptocurrency wallet designed for managing USDC
+                            on the Solana blockchain quickly and easily.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>What does "self-custody" mean?</summary>
+                    <div class="faq-answer">
+                        <p>It means <strong>you</strong>, and only you, have control over your private keys and your
+                            funds. We never have access to your wallet or assets.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>What is Solana (SOL)?</summary>
+                    <div class="faq-answer">
+                        <p>Solana is a high-performance blockchain known for its incredibly fast transaction speeds and
+                            very low fees. SOL is its native cryptocurrency.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>What is USDC?</summary>
+                    <div class="faq-answer">
+                        <p>USDC (USD Coin) is a stablecoin, which is a type of cryptocurrency designed to maintain a
+                            stable value. One USDC is pegged 1-to-1 with one U.S. Dollar.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Is there a minimum deposit to use the wallet?</summary>
+                    <div class="faq-answer">
+                        <p>There's no minimum USDC deposit. However, you need a very small amount of SOL (e.g., 0.01
+                            SOL) in your wallet to pay for network transaction fees.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section>
+            <h2>Wallet Security</h2>
+            <div class="faq-item">
+                <details>
+                    <summary>Where are my private keys stored?</summary>
+                    <div class="faq-answer">
+                        <p>Your private keys are encrypted and stored exclusively on your local device. They are never
+                            transmitted to us or any third party.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>What happens if I lose my private key?</summary>
+                    <div class="faq-answer">
+                        <p>Your funds will be <strong>permanently and irreversibly lost</strong>. Because this is a
+                            self-custody wallet, we cannot help you recover them. This is why backing up your key is
+                            critical.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>How should I back up my private key?</summary>
+                    <div class="faq-answer">
+                        <p>Write it down on paper and store it in multiple, secure, offline locations. Do not store it
+                            as a digital file, screenshot, or in a password manager.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>What is the difference between a private key and a public address?</summary>
+                    <div class="faq-answer">
+                        <p>Your <strong>public address</strong> is like your bank account number; you share it to
+                            receive funds. Your <strong>private key</strong> is like your account password; it grants
+                            full access and must be kept secret.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section>
+            <h2>Transactions & Fees</h2>
+            <div class="faq-item">
+                <details>
+                    <summary>Why do I need SOL in my wallet?</summary>
+                    <div class="faq-answer">
+                        <p>Every transaction on the Solana network (like sending USDC) requires a network fee, also
+                            known as a "gas fee." These fees are paid in SOL.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>How much are gas fees?</summary>
+                    <div class="faq-answer">
+                        <p>Gas fees on Solana are extremely low, typically costing a fraction of a US cent per
+                            transaction. They can fluctuate based on network congestion.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>How fast are transactions?</summary>
+                    <div class="faq-answer">
+                        <p>Most transactions on Solana are confirmed in just a few seconds.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Can I reverse a transaction?</summary>
+                    <div class="faq-answer">
+                        <p>No. All transactions on the Solana blockchain are final and cannot be reversed or cancelled
+                            once confirmed. Always double-check the address before sending.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>What is a transaction hash (or TxID)?</summary>
+                    <div class="faq-answer">
+                        <p>A transaction hash is a unique identifier for your transaction on the blockchain. It acts as
+                            a digital receipt and can be used to verify transaction details on a block explorer.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Why is my transaction "pending" or "failed"?</summary>
+                    <div class="faq-answer">
+                        <p>A transaction might fail if you don't have enough SOL for the gas fee. A pending status can
+                            be due to temporary network congestion. Usually, retrying after a moment resolves it.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technical Details (Advanced)</h2>
+            <div class="faq-item">
+                <details>
+                    <summary>What is an RPC node?</summary>
+                    <div class="faq-answer">
+                        <p>An RPC (Remote Procedure Call) node is a computer server that acts as a gateway between the
+                            Spend app and the Solana blockchain. It allows the app to read balances and broadcast
+                            transactions to the network.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Why would my balance not update?</summary>
+                    <div class="faq-answer">
+                        <p>This is typically due to a temporary delay in communication with the RPC node. Try pulling
+                            down on the home screen to refresh the balance manually.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>What is a block explorer?</summary>
+                    <div class="faq-answer">
+                        <p>A block explorer is a website (like <a href="https://solscan.io" target="_blank">Solscan</a>
+                            or <a href="https://explorer.solana.com" target="_blank">Solana Explorer</a>) that lets you
+                            view all public data on the blockchain, including transactions, wallets, and balances.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Do I need to worry about "rent"?</summary>
+                    <div class="faq-answer">
+                        <p>No. Rent is a tiny cost required by Solana to keep accounts on the blockchain. The Spend app
+                            handles all rent calculations and payments for you automatically.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section>
+            <h2>Privacy & Data</h2>
+            <div class="faq-item">
+                <details>
+                    <summary>What personal information does Spend collect?</summary>
+                    <div class="faq-answer">
+                        <p>We believe in data minimization. We only collect data if you opt-in to push notifications,
+                            which includes your public wallet address and a Firebase device token. We never see your
+                            personal details or private keys.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Do you sell or share my data?</summary>
+                    <div class="faq-answer">
+                        <p>No. We do not sell, trade, or rent your information. Data is only shared with essential
+                            service providers like Google Firebase to make notifications possible, under strict data
+                            protection rules.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>How do I delete my data from your servers?</summary>
+                    <div class="faq-answer">
+                        <p>Simply disable push notifications in the app's settings. This action automatically deletes
+                            your associated public address and notification token from our systems.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section>
+            <h2>Support & Troubleshooting</h2>
+            <div class="faq-item">
+                <details>
+                    <summary>I didn't receive a push notification for a transaction. Why?</summary>
+                    <div class="faq-answer">
+                        <p>First, check that notifications are enabled in both the Spend app settings and your phone's
+                            system settings. A weak internet connection can also cause delays.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Can support help if I get scammed or send funds to the wrong address?</summary>
+                    <div class="faq-answer">
+                        <p>Unfortunately, no. Due to the irreversible nature of blockchain and our self-custody model,
+                            we cannot recover funds or reverse transactions. Please be extremely careful.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>How can I contact support?</summary>
+                    <div class="faq-answer">
+                        <p>For questions or issues related to the app's functionality, please email us at <a
+                                href="mailto:support@spendwallet.cc">support@spendwallet.cc</a>.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2025 Spend. All Rights Reserved.
+        </footer>
+    </div>
+
+</body>
+
+</html>
