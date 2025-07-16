@@ -4,53 +4,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="description"
+        content="Spend is a self-custody wallet for managing SOL and USDC-on-Solana, designed for speed, security, and simplicity.">
+    <meta name="keywords" content="Spend, Solana, USDC, crypto wallet, self-custody, tap to pay">
     <title>Spend - Privacy Policy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
-
         :root {
-            --background-color: #121212;
-            --surface-color: #1E1E1E;
-            --primary-text-color: #E0E0E0;
+            --background-color: #101010;
+            --surface-color: #1A1A1A;
+            --primary-text-color: #F0F0F0;
             --secondary-text-color: #A0A0A0;
             --accent-color: #FFD740;
+            --accent-glow: rgba(255, 215, 64, 0.2);
             --border-color: #333333;
+            --disabled-color: #555555;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--background-color);
+            background: #000000;
             color: var(--primary-text-color);
             line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            max-width: 100vw;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            height: 32px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-text-color);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--primary-text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            padding: 5px;
+        }
+
+        /* --- Mobile Navigation --- */
+        .mobile-nav {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - var(--header-height));
+            background-color: rgba(26, 26, 26, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .mobile-nav.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .mobile-nav a {
+            color: var(--primary-text-color);
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Main Content --- */
+        main {
+            padding-top: var(--header-height);
         }
 
         .container {
             max-width: 800px;
             margin: 40px auto;
-            padding: 20px 40px;
+            padding: 80px 20px;
             background-color: var(--surface-color);
             border-radius: 12px;
             border: 1px solid var(--border-color);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        header {
+        .policy-header {
             text-align: center;
             padding-bottom: 30px;
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 30px;
         }
 
-        header h1 {
+        .policy-header h1 {
             color: var(--accent-color);
             font-size: 2.5rem;
             font-weight: 700;
             margin: 0;
         }
 
-        header p {
+        .policy-header p {
             color: var(--secondary-text-color);
             font-size: 1rem;
             margin-top: 8px;
@@ -78,12 +224,12 @@
             font-weight: 500;
         }
 
-        ul {
+        .container ul {
             list-style-type: none;
             padding-left: 0;
         }
 
-        ul li {
+        .container ul li {
             background-color: rgba(255, 255, 255, 0.03);
             padding: 15px;
             border-radius: 8px;
@@ -91,191 +237,429 @@
             border-left: 3px solid var(--accent-color);
         }
 
-        a {
+        .container a {
             color: var(--accent-color);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        a:hover {
+        .container a:hover {
             text-decoration: underline;
         }
 
+        /* --- Footer --- */
         footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
+            padding: 40px 20px;
+            background-color: var(--background-color);
             border-top: 1px solid var(--border-color);
+            text-align: center;
             color: var(--secondary-text-color);
             font-size: 0.9rem;
+        }
+
+        .footer-socials {
+            margin-bottom: 20px;
+        }
+
+        .footer-socials a {
+            color: var(--secondary-text-color);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-socials a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--secondary-text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-text-color);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 60px;
+            }
+
+            header {
+                padding: 0 15px;
+            }
+
+            .logo-img {
+                height: 28px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .container {
+                padding: 15px 20px;
+                margin: 30px 15px;
+            }
+
+            .policy-header h1 {
+                font-size: 2rem;
+            }
+
+            .footer-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 0 10px;
+            }
+
+            .logo-img {
+                height: 24px;
+            }
+
+            .container {
+                padding: 10px 15px;
+                margin: 20px 10px;
+            }
+
+            .policy-header h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            p,
+            ul {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .policy-header h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 
 <body>
-
-    <div class="container">
-        <header>
-            <h1>Privacy Policy</h1>
-            <p><strong>Effective Date:</strong> July 14, 2025 | <strong>Version:</strong> 1.2</p>
-        </header>
-        <section>
-            <p>
-                This Privacy Policy governs how Spend ("we," "us," or "our") collects, uses, and discloses your
-                information. By downloading, accessing, or using our self-custody cryptocurrency wallet application
-                ("App"), you ("User," "you") agree to be bound by this Privacy Policy and our Terms of Use, available at
-                <a href="https://spendwallet.cc/terms">https://spendwallet.cc/terms</a>. If you do not agree to this
-                Privacy Policy or the Terms of Use, do not use the App.
-            </p>
-        </section>
-
-        <section>
-            <h2>1. Information We Collect</h2>
-            <p>We believe in data minimization and collect only what is essential to provide our service. The
-                information we collect includes:</p>
+    <header>
+        <a href="/" class="logo-container">
+            <img src="/logofull.png" alt="Spend Logo" class="logo-img">
+            <span class="logo-text">Spend</span>
+        </a>
+        <nav>
             <ul>
-                <li><strong>Wallet Addresses:</strong> Your public Solana wallet address along with your public
-                    USDC-on-Solana token address is used to identify your account on the blockchain and to associate it
-                    with notification services if you opt-in. <span style="color: var(--accent-color);">We never have
-                        access to your private keys.</span></li>
-                <li><strong>FCM Tokens & Notification Preferences:</strong> If you choose to receive push notifications,
-                    we securely store a Firebase Cloud Messaging (FCM) token linked to your wallet address, along with
-                    your specific notification settings.</li>
-                <li><strong>Transaction Hashes:</strong> To prevent sending you duplicate notifications for a single
-                    transaction event, we temporarily store the publicly-available, unique hash of a transaction.</li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#download">Download</a></li>
+                <li><a href="/#community">About</a></li>
+                <li><a href="/pos">Point of Sales</a></li>
             </ul>
-        </section>
+        </nav>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
 
-        <section>
-            <h2>2. How We Use Your Information</h2>
-            <p>Your information is used strictly for the following purposes:</p>
-            <ul>
-                <li><strong>To Send Transaction Notifications:</strong> If you opt-in, we use your wallet addresses,
-                    your FCM token, and your notification preferences to push real-time notifications about your
-                    on-chain transaction activity.</li>
-                <li><strong>For Notification Deduplication:</strong> We temporarily use transaction hashes to enhance
-                    your user
-                    experience by ensuring you receive each notification only once.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>3. Data Retention</h2>
-            <p>We retain your information for the following periods:</p>
-            <ul>
-                <li><strong>Wallet Addresses:</strong> Stored only while you have notifications enabled in the app
-                    settings. Automatically deleted when you disable notifications.</li>
-                <li><strong>FCM Tokens:</strong> Stored only while you have notifications enabled in the app settings.
-                    Automatically deleted when you disable notifications.</li>
-                <li><strong>Notification Preferences:</strong> Stored only while you have notifications enabled in the
-                    app settings. Automatically deleted when you disable notifications.</li>
-                <li><strong>Transaction Hashes:</strong> Temporarily stored for deduplication purposes and automatically
-                    deleted within 24 hours of creation.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>4. Data Storage and Security</h2>
-            <p>We are committed to protecting your information. As a self-custody wallet, the core principle is that
-                <strong>you control your keys and your funds.</strong>
-            </p>
-            <ul>
-                <li><strong>On-Device Storage:</strong> Your private keys are encrypted and stored exclusively on your
-                    local device. We cannot access them. You are solely responsible for their security.</li>
-                <li><strong>Third-Party Storage:</strong> The limited data we handle (FCM tokens and temporary
-                    transaction hashes) is stored securely using Cloudflare's D1 and KV storage services, which employ
-                    industry-standard encryption and security measures.</li>
-                <li><strong>International Data Transfers:</strong> Our notification service utilizes Google Firebase,
-                    which may process data internationally. All transfers are protected by appropriate safeguards.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>5. Data Sharing and Disclosure</h2>
-            <p>We do not sell, trade, or rent your personally identifiable information. Your data is not shared with
-                third parties, except:</p>
-            <ul>
-                <li><strong>Service Providers:</strong> We work with trusted third-party service providers (such as
-                    Google Firebase for notifications) who are bound by strict data protection agreements.</li>
-                <li><strong>Legal Requirements:</strong> We may disclose information if required by law, regulation,
-                    legal process, or governmental request.</li>
-                <li><strong>Safety and Security:</strong> We may disclose information to protect the rights, property,
-                    or safety of our users or others.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>6. Your Rights and Choices</h2>
-            <p>You have complete control over your data within the Spend app and the following rights:</p>
-            <ul>
-                <li><strong>Push Notifications:</strong> You can opt-out of push notifications at any time by navigating
-                    to the App's settings and disabling them. Doing so will initiate the deletion of your FCM
-                    token, wallet address link, and all associated notification preferences from our storage systems.
-                    Due to Cloudflare's edge caching, complete deletion may take up to 60 seconds.</li>
-                <li><strong>Data Access:</strong> You can request access to the personal information we hold about you.
-                </li>
-                <li><strong>Data Deletion:</strong> You can request deletion of your personal information at any time.
-                </li>
-                <li><strong>Data Portability:</strong> You can request a copy of your data in a machine-readable format.
-                </li>
-            </ul>
-            <p>To exercise any of these rights, contact us at <a
-                    href="mailto:privacy@spendwallet.cc">privacy@spendwallet.cc</a>.</p>
-        </section>
-
-        <section>
-            <h2>7. Children's Privacy</h2>
-            <p>Our App is not intended for individuals under the age of 13 (or 16 in the European Union). We do not
-                knowingly collect personal
-                information from children under these ages. If we become aware that a child has provided us with
-                personal
-                information, we will take immediate steps to delete it.</p>
-        </section>
-
-        <section>
-            <h2>8. Regional Privacy Rights</h2>
-            <p>Depending on your location, you may have additional privacy rights:</p>
-            <ul>
-                <li><strong>European Union:</strong> Under GDPR, you have rights to access, rectify, erase, restrict
-                    processing, object to processing, and data portability.</li>
-                <li><strong>California:</strong> Under CCPA, you have rights to know what personal information is
-                    collected, delete personal information, and opt-out of sale (though we don't sell data).</li>
-                <li><strong>Other Jurisdictions:</strong> We respect and comply with applicable privacy laws in all
-                    jurisdictions where we operate.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>9. Changes to Our Privacy Policy</h2>
-            <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology,
-                legal requirements, or other factors. When we make changes, we will:</p>
-            <ul>
-                <li><strong>Update the "Effective Date" and Version Number:</strong> The date and version number at the
-                    top of this policy will reflect when changes become effective.</li>
-                <li><strong>Post the Updated Policy:</strong> The revised policy will be made available on our website
-                    and accessible through the app's privacy policy link.</li>
-                <li><strong>Provide Notice for Material Changes:</strong> For significant changes that substantially
-                    affect how we collect, use, or share your information, we will provide prominent notice through the
-                    app interface or other appropriate means.</li>
-            </ul>
-            <p><strong>Your continued use of the App after any changes become effective constitutes your acceptance of
-                    the revised Privacy Policy.</strong> We encourage you to review this policy periodically to stay
-                informed about how we protect your information.</p>
-            <p>If you do not agree with any changes to this Privacy Policy, you should discontinue use of the App.</p>
-        </section>
-
-        <section>
-            <h2>10. Contact Us</h2>
-            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices,
-                please contact us at:</p>
-            <p><strong>Email:</strong> <a href="mailto:support@spendwallet.cc">support@spendwallet.cc</a></p>
-        </section>
-
-        <footer>
-            &copy; 2025 Spend. All Rights Reserved.
-        </footer>
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#download">Download</a></li>
+            <li><a href="/#community">About</a></li>
+            <li><a href="/pos">Point of Sales</a></li>
+        </ul>
     </div>
 
+    <main>
+        <div class="container">
+            <div class="policy-header">
+                <h1>Privacy Policy</h1>
+                <p><strong>Effective Date:</strong> July 14, 2025 | <strong>Version:</strong> 1.2</p>
+            </div>
+            <section>
+                <p>
+                    This Privacy Policy governs how Spend ("we," "us," or "our") collects, uses, and discloses your
+                    information. By downloading, accessing, or using our self-custody cryptocurrency wallet application
+                    ("App"), you ("User," "you") agree to be bound by this Privacy Policy and our Terms of Use,
+                    available at
+                    <a href="https://spendwallet.cc/terms">https://spendwallet.cc/terms</a>. If you do not agree to this
+                    Privacy Policy or the Terms of Use, do not use the App.
+                </p>
+            </section>
+
+            <section>
+                <h2>1. Information We Collect</h2>
+                <p>We believe in data minimization and collect only what is essential to provide our service. The
+                    information we collect includes:</p>
+                <ul>
+                    <li><strong>Wallet Addresses:</strong> Your public Solana wallet address along with your public
+                        USDC-on-Solana token address is used to identify your account on the blockchain and to associate
+                        it
+                        with notification services if you opt-in. <span style="color: var(--accent-color);">We never
+                            have
+                            access to your private keys.</span></li>
+                    <li><strong>FCM Tokens & Notification Preferences:</strong> If you choose to receive push
+                        notifications,
+                        we securely store a Firebase Cloud Messaging (FCM) token linked to your wallet address, along
+                        with
+                        your specific notification settings.</li>
+                    <li><strong>Transaction Hashes:</strong> To prevent sending you duplicate notifications for a single
+                        transaction event, we temporarily store the publicly-available, unique hash of a transaction.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>2. How We Use Your Information</h2>
+                <p>Your information is used strictly for the following purposes:</p>
+                <ul>
+                    <li><strong>To Send Transaction Notifications:</strong> If you opt-in, we use your wallet addresses,
+                        your FCM token, and your notification preferences to push real-time notifications about your
+                        on-chain transaction activity.</li>
+                    <li><strong>For Notification Deduplication:</strong> We temporarily use transaction hashes to
+                        enhance
+                        your user
+                        experience by ensuring you receive each notification only once.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. Data Retention</h2>
+                <p>We retain your information for the following periods:</p>
+                <ul>
+                    <li><strong>Wallet Addresses:</strong> Stored only while you have notifications enabled in the app
+                        settings. Automatically deleted when you disable notifications.</li>
+                    <li><strong>FCM Tokens:</strong> Stored only while you have notifications enabled in the app
+                        settings.
+                        Automatically deleted when you disable notifications.</li>
+                    <li><strong>Notification Preferences:</strong> Stored only while you have notifications enabled in
+                        the
+                        app settings. Automatically deleted when you disable notifications.</li>
+                    <li><strong>Transaction Hashes:</strong> Temporarily stored for deduplication purposes and
+                        automatically
+                        deleted within 24 hours of creation.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>4. Data Storage and Security</h2>
+                <p>We are committed to protecting your information. As a self-custody wallet, the core principle is that
+                    <strong>you control your keys and your funds.</strong>
+                </p>
+                <ul>
+                    <li><strong>On-Device Storage:</strong> Your private keys are encrypted and stored exclusively on
+                        your
+                        local device. We cannot access them. You are solely responsible for their security.</li>
+                    <li><strong>Third-Party Storage:</strong> The limited data we handle (FCM tokens and temporary
+                        transaction hashes) is stored securely using Cloudflare's D1 and KV storage services, which
+                        employ
+                        industry-standard encryption and security measures.</li>
+                    <li><strong>International Data Transfers:</strong> Our notification service utilizes Google
+                        Firebase,
+                        which may process data internationally. All transfers are protected by appropriate safeguards.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>5. Data Sharing and Disclosure</h2>
+                <p>We do not sell, trade, or rent your personally identifiable information. Your data is not shared with
+                    third parties, except:</p>
+                <ul>
+                    <li><strong>Service Providers:</strong> We work with trusted third-party service providers (such as
+                        Google Firebase for notifications) who are bound by strict data protection agreements.</li>
+                    <li><strong>Legal Requirements:</strong> We may disclose information if required by law, regulation,
+                        legal process, or governmental request.</li>
+                    <li><strong>Safety and Security:</strong> We may disclose information to protect the rights,
+                        property,
+                        or safety of our users or others.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>6. Your Rights and Choices</h2>
+                <p>You have complete control over your data within the Spend app and the following rights:</p>
+                <ul>
+                    <li><strong>Push Notifications:</strong> You can opt-out of push notifications at any time by
+                        navigating
+                        to the App's settings and disabling them. Doing so will initiate the deletion of your FCM
+                        token, wallet address link, and all associated notification preferences from our storage
+                        systems.
+                        Due to Cloudflare's edge caching, complete deletion may take up to 60 seconds.</li>
+                    <li><strong>Data Access:</strong> You can request access to the personal information we hold about
+                        you.
+                    </li>
+                    <li><strong>Data Deletion:</strong> You can request deletion of your personal information at any
+                        time.
+                    </li>
+                    <li><strong>Data Portability:</strong> You can request a copy of your data in a machine-readable
+                        format.
+                    </li>
+                </ul>
+                <p>To exercise any of these rights, contact us at <a
+                        href="mailto:privacy@spendwallet.cc">privacy@spendwallet.cc</a>.</p>
+            </section>
+
+            <section>
+                <h2>7. Children's Privacy</h2>
+                <p>Our App is not intended for individuals under the age of 13 (or 16 in the European Union). We do not
+                    knowingly collect personal
+                    information from children under these ages. If we become aware that a child has provided us with
+                    personal
+                    information, we will take immediate steps to delete it.</p>
+            </section>
+
+            <section>
+                <h2>8. Regional Privacy Rights</h2>
+                <p>Depending on your location, you may have additional privacy rights:</p>
+                <ul>
+                    <li><strong>European Union:</strong> Under GDPR, you have rights to access, rectify, erase, restrict
+                        processing, object to processing, and data portability.</li>
+                    <li><strong>California:</strong> Under CCPA, you have rights to know what personal information is
+                        collected, delete personal information, and opt-out of sale (though we don't sell data).</li>
+                    <li><strong>Other Jurisdictions:</strong> We respect and comply with applicable privacy laws in all
+                        jurisdictions where we operate.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>9. Changes to Our Privacy Policy</h2>
+                <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology,
+                    legal requirements, or other factors. When we make changes, we will:</p>
+                <ul>
+                    <li><strong>Update the "Effective Date" and Version Number:</strong> The date and version number at
+                        the
+                        top of this policy will reflect when changes become effective.</li>
+                    <li><strong>Post the Updated Policy:</strong> The revised policy will be made available on our
+                        website
+                        and accessible through the app's privacy policy link.</li>
+                    <li><strong>Provide Notice for Material Changes:</strong> For significant changes that substantially
+                        affect how we collect, use, or share your information, we will provide prominent notice through
+                        the
+                        app interface or other appropriate means.</li>
+                </ul>
+                <p><strong>Your continued use of the App after any changes become effective constitutes your acceptance
+                        of
+                        the revised Privacy Policy.</strong> We encourage you to review this policy periodically to stay
+                    informed about how we protect your information.</p>
+                <p>If you do not agree with any changes to this Privacy Policy, you should discontinue use of the App.
+                </p>
+            </section>
+
+            <section>
+                <h2>10. Contact Us</h2>
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices,
+                    please contact us at:</p>
+                <p><strong>Email:</strong> <a href="mailto:support@spendwallet.cc">support@spendwallet.cc</a></p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-socials">
+            <a href="https://discord.spendwallet.cc" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i
+                    class="fab fa-discord"></i></a>
+        </div>
+        <div class="footer-links">
+            <div class="footer-row">
+                <a href="/">Home</a>
+                <a href="/pos">Point of Sales</a>
+            </div>
+            <div class="footer-row">
+                <a href="/faq">FAQ</a>
+                <a href="/terms">Terms of Use</a>
+                <a href="/privacy">Privacy Policy</a>
+            </div>
+        </div>
+        <p>© <span id="year"></span> Spend. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        const mainContent = document.querySelector('main');
+
+        function closeMenu() {
+            mobileNav.classList.remove('show');
+            const icon = hamburger.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+
+        hamburger.addEventListener('click', () => {
+            const isOpened = mobileNav.classList.toggle('show');
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('fa-bars', !isOpened);
+            icon.classList.toggle('fa-times', isOpened);
+        });
+
+        // Close mobile nav when a link is clicked
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Check if the link is for the current page to avoid scrolling issues
+                if (link.getAttribute('href').startsWith('/#') || window.location.pathname === link.getAttribute('href')) {
+                    closeMenu();
+                }
+            });
+        });
+
+        // Close mobile nav when clicking outside on main content
+        document.addEventListener('click', (e) => {
+            if (mobileNav.classList.contains('show') && !hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    // Calculate position to scroll to
+                    const headerOffset = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
