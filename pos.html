@@ -190,7 +190,7 @@
             max-width: 1100px;
             margin: 0 auto;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 60px;
@@ -263,16 +263,16 @@
 
         /* --- How It Works Section --- */
         #how-it-works {
-             background-color: var(--surface-color);
+            background-color: var(--surface-color);
         }
 
         .how-it-works-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
             align-items: center;
         }
-        
+
         .how-it-works-item i {
             font-size: 4rem;
             color: var(--accent-color);
@@ -288,7 +288,7 @@
             text-align: center;
             font-weight: 700;
         }
-        
+
         .how-it-works-item p {
             color: var(--secondary-text-color);
             text-align: center;
@@ -336,7 +336,7 @@
             transform: translate(-50%, -50%);
             opacity: 0.15;
         }
-        
+
         .pricing-content * {
             position: relative;
             z-index: 2;
@@ -349,14 +349,14 @@
             margin: 10px 0;
             line-height: 1;
         }
-        
+
         .pricing-fee span {
             font-size: 1.5rem;
             font-weight: 500;
             color: var(--secondary-text-color);
             vertical-align: middle;
         }
-        
+
         .pricing-text {
             color: var(--primary-text-color);
             font-size: 1.4rem;
@@ -367,18 +367,18 @@
             color: var(--secondary-text-color);
             max-width: 500px;
         }
-        
+
         /* --- Enterprise Section --- */
         #enterprise {
             background-color: var(--background-color);
         }
-        
+
         .enterprise-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
-        
+
         .enterprise-card {
             background-color: var(--surface-color);
             padding: 30px;
@@ -386,12 +386,12 @@
             border: 1px solid var(--border-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .enterprise-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 15px var(--accent-glow);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px var(--accent-glow);
         }
-        
+
         .enterprise-card i {
             font-size: 2rem;
             color: var(--accent-color);
@@ -403,7 +403,7 @@
             margin-bottom: 10px;
             font-weight: 500;
         }
-        
+
         .enterprise-card p {
             color: var(--secondary-text-color);
             margin: 0;
@@ -415,7 +415,7 @@
             text-align: center;
             margin-top: 60px;
         }
-        
+
         .contact-cta p {
             color: var(--secondary-text-color);
             margin-bottom: 30px;
@@ -452,12 +452,17 @@
             margin-bottom: 20px;
         }
 
+        .footer-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 10px;
+        }
+
         .footer-links a {
             color: var(--secondary-text-color);
             text-decoration: none;
-            margin: 0 15px;
             transition: color 0.3s ease;
-            display: inline-block;
         }
 
         .footer-links a:hover {
@@ -470,7 +475,7 @@
                 grid-template-columns: 1fr 1fr;
             }
         }
-        
+
         @media (max-width: 768px) {
             :root {
                 --header-height: 60px;
@@ -495,7 +500,7 @@
             section {
                 padding: 60px 15px;
             }
-            
+
             .section-title {
                 font-size: 2rem;
             }
@@ -504,7 +509,7 @@
                 padding: 40px 15px;
                 min-height: calc(70vh - var(--header-height));
             }
-            
+
             .how-it-works-grid {
                 grid-template-columns: 1fr;
                 gap: 60px;
@@ -520,19 +525,24 @@
             header {
                 padding: 0 10px;
             }
+
             .logo-img {
                 height: 24px;
             }
+
             section {
                 padding: 50px 10px;
             }
+
             .hero {
                 padding: 30px 10px;
             }
+
             .cta-button {
                 padding: 12px 25px;
                 font-size: 1rem;
             }
+
             .pricing-content {
                 padding: 40px 20px;
             }
@@ -550,9 +560,9 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/#features">Features</a></li>
-                <li><a href="/pos">POS</a></li>
                 <li><a href="/#download">Download</a></li>
                 <li><a href="/#community">About</a></li>
+                <li><a href="/pos">Point of Sales</a></li>
             </ul>
         </nav>
         <div class="hamburger">
@@ -564,9 +574,9 @@
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/#features">Features</a></li>
-            <li><a href="/pos">POS</a></li>
             <li><a href="/#download">Download</a></li>
             <li><a href="/#community">About</a></li>
+            <li><a href="/pos">Point of Sales</a></li>
         </ul>
     </div>
 
@@ -575,12 +585,12 @@
             <h1>Accept the Future of Payments.</h1>
             <p>Empower your business with Spend POS. Accept SOL and USDC payments instantly, with unparalleled speed
                 and radically low fees, directly from your customers' wallets.</p>
-            <a href="#enterprise" class="cta-button">Become a Merchant</a>
+            <a href="mailto:sales@spendwallet.cc" class="cta-button">Become a Merchant</a>
         </section>
 
         <section id="how-it-works" class="animated-section">
             <div class="section-container">
-                <h2 class="section-title">Seamless Payments, <span>Two Ways</span></h2>
+                <h2 class="section-title">Seamless Payments, <span>Three Ways</span></h2>
                 <p class="section-subtitle">Our flexible POS protocol allows you to accept crypto payments through
                     simple, intuitive methods that work for any retail environment.</p>
                 <div class="how-it-works-grid">
@@ -591,8 +601,15 @@
                             The payment is processed in seconds using Solana Pay.</p>
                     </div>
                     <div class="how-it-works-item">
+                        <i class="fa-solid fa-link"></i>
+                        <h3>App Links</h3>
+                        <p>Share a unique payment link with your customers via email, SMS, or display it on your
+                            website.
+                            When clicked, it opens the Spend app for instant payment confirmation.</p>
+                    </div>
+                    <div class="how-it-works-item">
                         <i class="fa-solid fa-qrcode"></i>
-                        <h3>App Links (QR Codes)</h3>
+                        <h3>QR Codes</h3>
                         <p>Generate a dynamic QR code on your terminal or device. Customers scan it with their phone,
                             which instantly opens the Spend app to confirm the payment.</p>
                     </div>
@@ -674,12 +691,17 @@
                     class="fab fa-discord"></i></a>
         </div>
         <div class="footer-links">
-            <a href="/">Home</a>
-            <a href="/faq">FAQ</a>
-            <a href="/terms">Terms of Use</a>
-            <a href="/privacy">Privacy Policy</a>
+            <div class="footer-row">
+                <a href="/">Home</a>
+                <a href="/pos">Point of Sales</a>
+            </div>
+            <div class="footer-row">
+                <a href="/faq">FAQ</a>
+                <a href="/terms">Terms of Use</a>
+                <a href="/privacy">Privacy Policy</a>
+            </div>
         </div>
-        <p>&copy; <span id="year"></span> Spend. All Rights Reserved.</p>
+        <p>© <span id="year"></span> Spend. All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -715,11 +737,10 @@
 
         // Close mobile nav when clicking outside on main content
         document.addEventListener('click', (e) => {
-             if (mobileNav.classList.contains('show') && !hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+            if (mobileNav.classList.contains('show') && !hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
                 closeMenu();
             }
         });
-
 
         // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
@@ -751,10 +772,10 @@
                     // Calculate position to scroll to
                     const headerOffset = document.querySelector('header').offsetHeight;
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-                    
+
                     window.scrollTo({
-                         top: targetPosition,
-                         behavior: 'smooth'
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
