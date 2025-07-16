@@ -2,66 +2,588 @@
 <html lang="en">
 
 <head>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Construction</title>
+    <meta name="description"
+        content="Spend is a self-custody wallet for managing SOL and USDC-on-Solana, designed for speed, security, and simplicity.">
+    <meta name="keywords" content="Spend, Solana, USDC, crypto wallet, self-custody, tap to pay">
+    <title>Spend - Your Secure Solana Wallet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            color: #333;
+        :root {
+            --background-color: #101010;
+            --surface-color: #1A1A1A;
+            --primary-text-color: #F0F0F0;
+            --secondary-text-color: #A0A0A0;
+            --accent-color: #FFD740;
+            --accent-glow: rgba(255, 215, 64, 0.2);
+            --border-color: #333333;
+            --disabled-color: #555555;
         }
 
-        .container {
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, var(--background-color) 0%, #121212 100%);
+            color: var(--primary-text-color);
+            line-height: 1.7;
+        }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--accent-color);
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-text-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: var(--primary-text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        /* --- Main Content & Sections --- */
+        main {
+            padding-top: 85px;
+            /* Header height */
+        }
+
+        section {
+            padding: 80px 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-text-color);
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .section-title span {
+            color: var(--accent-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: calc(100vh - 85px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            max-width: 800px;
+            background: -webkit-linear-gradient(45deg, var(--primary-text-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: var(--secondary-text-color);
+            max-width: 600px;
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .cta-button:hover {
+            background-color: #E5C12F;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 25px var(--accent-glow);
+        }
+
+        /* --- Features Section --- */
+        .features {
+            background-color: var(--surface-color);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background-color: var(--background-color);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .feature-card p {
+            color: var(--secondary-text-color);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* --- Download Section --- */
+        .download {
             text-align: center;
         }
 
-        h1 {
-            font-size: 3rem;
-            color: #ff6f61;
+        .app-stores {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
         }
 
-        p {
+        .store-button {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px 30px;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-text-color);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .store-button:hover {
+            background-color: #2a2a2a;
+            transform: translateY(-3px);
+        }
+
+        .store-button i {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+
+        .store-button .text-container {
+            text-align: left;
+        }
+
+        .store-button .subtitle {
+            font-size: 0.8rem;
+            display: block;
+            color: var(--secondary-text-color);
+        }
+
+        .store-button .title {
             font-size: 1.2rem;
-            margin: 10px 0;
+            display: block;
+            font-weight: 500;
         }
 
-        .loader {
-            margin: 20px auto;
-            border: 8px solid #f3f3f3;
-            border-top: 8px solid #ff6f61;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 1s linear infinite;
+        .store-button.disabled {
+            background-color: transparent;
+            border-color: var(--disabled-color);
+            cursor: not-allowed;
+            color: var(--secondary-text-color);
         }
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
+        .store-button.disabled i {
+            color: var(--disabled-color);
+        }
+
+        .store-button.disabled:hover {
+            background-color: transparent;
+            transform: none;
+        }
+
+        /* --- Community Section --- */
+        .community {
+            background-color: var(--surface-color);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .community::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, rgba(255, 215, 64, 0) 60%);
+            transform: translate(-50%, -50%);
+            opacity: 0.2;
+        }
+
+        .community-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .community-content .fab.fa-discord {
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .community-content p {
+            color: var(--secondary-text-color);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            color: var(--secondary-text-color);
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 40px;
+            background-color: var(--background-color);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--secondary-text-color);
+            font-size: 0.9rem;
+        }
+
+        .footer-socials {
+            margin-bottom: 20px;
+        }
+
+        .footer-socials a {
+            color: var(--secondary-text-color);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-socials a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--secondary-text-color);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-text-color);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
             }
 
-            100% {
-                transform: rotate(360deg);
+            section {
+                padding: 60px 20px;
+            }
+
+            nav ul {
+                display: none;
+                position: fixed;
+                top: 70px;
+                /* Header height */
+                left: 0;
+                width: 100%;
+                height: calc(100% - 70px);
+                background-color: var(--surface-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            nav ul.show {
+                display: flex;
+                transform: translateX(0);
+            }
+
+            nav li {
+                margin: 20px 0;
+            }
+
+            nav a {
+                font-size: 1.5rem;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Website Under Construction</h1>
-        <p>Working hard to bring you something amazing. Stay tuned!</p>
-        <div class="loader"></div>
-    </div>
+    <header>
+        <a href="#home" class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M62.6,23.3c-7.4-6.2-17.4-9.3-28.8-9.3C18.5,14,7.2,19.7,7.2,30.3c0,7.1,5.2,12.5,13.2,15.3c-2.3,2.4-3.8,5.4-3.8,8.8 c0,7.5,6.1,13.6,13.6,13.6c3.4,0,6.5-1.3,8.8-3.8c2.8,8,8.2,13.2,15.3,13.2c10.6,0,21.9-11.3,21.9-26.6 C76.2,40.1,70.9,29.9,62.6,23.3z M22.2,39.4c-3.7-1.4-6-4.1-6-7.1c0-4.8,5.7-8.6,12.7-8.6c8.1,0,13.6,4.6,13.6,10 c0,1.9-0.5,3.7-1.5,5.3C35.2,44.2,28.4,43.2,22.2,39.4z M62.6,62.8c-4.8,0-8.6-5.7-8.6-12.7c0-7,3.2-11.7,8.2-14.7 c5.7,3.8,9.4,9.2,9.4,15.4C71.5,58,67.4,62.8,62.6,62.8z" />
+            </svg>
+            <span class="logo-text">Spend</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#community">Community</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero is-visible">
+            <h1>The Future of Payments, <br>On Solana.</h1>
+            <p>Spend is your self-custody wallet for SOL and USDC, engineered for instant transactions, rock-solid
+                security, and effortless use.</p>
+            <a href="#download" class="cta-button">Get the App</a>
+        </section>
+
+        <section id="features" class="features animated-section">
+            <h2 class="section-title">Why <span>Spend</span>?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-key"></i>
+                    <h3>Absolute Self-Custody</h3>
+                    <p>Your keys, your crypto. You are in complete control of your funds at all times.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <h3>Tap to Pay</h3>
+                    <p>The checkout line is your new fast lane. Pay instantly at supported merchants with a simple tap.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                    <h3>Blazing Fast</h3>
+                    <p>Leveraging Solana's speed, your transactions are confirmed in seconds, not minutes.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                    <h3>Exceptionally Low Fees</h3>
+                    <p>Keep more of your money. Send and swap with transaction fees that cost less than a cent.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="download animated-section">
+            <h2 class="section-title">Your Wallet is <span>Waiting</span></h2>
+            <p
+                style="text-align: center; color: var(--secondary-text-color); max-width: 500px; margin: -20px auto 30px auto;">
+                Take control of your digital assets. Download Spend today and step into the new era of finance.</p>
+            <div class="app-stores">
+                <a href="#" class="store-button">
+                    <i class="fa-brands fa-google-play"></i>
+                    <div class="text-container">
+                        <span class="subtitle">GET IT ON</span>
+                        <span class="title">Google Play</span>
+                    </div>
+                </a>
+                <a href="#" class="store-button disabled">
+                    <i class="fa-brands fa-apple"></i>
+                    <div class="text-container">
+                        <span class="subtitle">Coming Soon on the</span>
+                        <span class="title">App Store</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="community" class="community animated-section">
+            <div class="community-content">
+                <i class="fab fa-discord"></i>
+                <h2 class="section-title">Join Our <span>Community</span></h2>
+                <p>We're building Spend in the open with our community at the heart of everything we do. Join our
+                    Discord to share feedback, get support, and help shape the future of payments.</p>
+                <a href="https://discord.spendwallet.cc" target="_blank" rel="noopener noreferrer"
+                    class="cta-button">Join Discord</a>
+                <p class="contact-info">
+                    For other inquiries, you can reach us at <a
+                        href="mailto:support@spendwallet.cc">support@spendwallet.cc</a>.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-socials">
+            <a href="https://discord.spendwallet.cc" target="_blank" rel="noopener noreferrer" aria-label="Discord"><i
+                    class="fab fa-discord"></i></a>
+        </div>
+        <div class="footer-links">
+            <a href="/terms">Terms of Service</a>
+            <a href="/privacy">Privacy Policy</a>
+        </div>
+        <p>&copy; <span id="year"></span> Spend. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Close mobile nav when a link is clicked
+        document.querySelectorAll('nav ul a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (document.querySelector('nav ul').classList.contains('show')) {
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Scroll Animations
+        const animatedSections = document.querySelectorAll('.animated-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        animatedSections.forEach(section => {
+            observer.observe(section);
+        });
+
+    </script>
 </body>
 
 </html>
