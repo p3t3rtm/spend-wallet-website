@@ -7,7 +7,7 @@
         "configSolanaTransactionExplorerUrl": "https://solscan.io/tx/",
         "configSolMarketPriceUrl": "https://api.coinbase.com/v2/prices/SOL-USD/spot",
         "configUsdcMarketPriceUrl": "https://api.coinbase.com/v2/prices/USDC-USD/spot",
-        "expiresAt": 1755418831138
+        "expiresAt": 1755421911269
     },
-    "signature": "3BCovp2GTbaN1F3d1gBKDYGQobqmW8F5sNFa5TRuDeUjy2oTQWgCEdHoPGCQNUDFyuTRBKiDvPp3Ko35Eo6gz7SH"
+    "signature": "4rE76Z2bNRv57hzrv7hCfAcr2w4rYbE2JU9fWf9DgBwYdQkfkWcmx3y27VDL7ZzV352o5s8kjHskZGRu3KBfkQDu"
 }
